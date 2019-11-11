@@ -81,6 +81,17 @@ app.get('/api/movies/:id',(req,res)=>{
   })
 })
 
+
+app.put('/api/movies/:id', (req, res)=>{
+  console.log(req.body);
+  console.log("Edit "+req.params.id);
+
+  MovieModel.findByIdAndUpdate(req.params.id,
+    req.body, {new:true}, (error, data)=>{
+      res.send(data);
+    })
+})
+
 app.listen(PORT, function () {
   console.log('Server is running on Port: ', PORT);
 });
