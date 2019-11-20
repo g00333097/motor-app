@@ -56,6 +56,19 @@ app.delete('/api/movies/:id', (req,res) =>{
   })
 })
 
+app.get('/api/movies/search/:title/:criteria', (req,res)=>{
+  console.log(req.params.title);
+  console.log(req.params.criteria);
+if(req.params.criteria == 'title')
+  {
+  MovieModel.find({ 'title': req.params.title},
+(error,data) =>{
+  res.json(data);
+})
+  }
+})
+
+
 app.post('/api/movies', (req,res) =>{
 console.log('post Sucessfull');
 console.log(req.body)

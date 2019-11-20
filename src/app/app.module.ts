@@ -12,18 +12,21 @@ MatCardModule,
 MatButtonModule,
 MatToolbarModule,
 MatExpansionModule,
-
+MatNativeDateModule,
+MatDatepickerModule
 } from '@angular/material';
 import { ReadComponent } from './read/read.component';
 import { CreateComponent } from './create/create.component';
 import {FormsModule} from '@angular/forms';
 import { EditComponent } from './edit/edit.component';
+import { HomePageComponent } from './home-page/home-page.component';
 @NgModule({
   declarations: [
     AppComponent,
     ReadComponent,
     CreateComponent,
-    EditComponent
+    EditComponent,
+    HomePageComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +38,8 @@ MatToolbarModule,
 MatExpansionModule,
 BrowserAnimationsModule,
 MatInputModule,
+MatDatepickerModule,
+MatNativeDateModule,
 FormsModule
 
   ],
