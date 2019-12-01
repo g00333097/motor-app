@@ -1,26 +1,52 @@
-<!-- <ul>
-  <li *ngFor="let movie of MyMovies">
-    <p>{{movie.Title}}</p>
-    <p>{{movie.Year}}</p>
-    <img src={{movie.Poster}}>
-  </li>
-</ul> -->
 
-<mat-accordion *ngFor="let movie of MyMovies">
-    <mat-expansion-panel [expanded]="true" >
+<style>
+  
+h4{
+
+ color: white;
+}
+
+h2{
+
+
+ color: yellow; 
+}
+</style>
+
+
+
+<mat-accordion *ngFor="let motor of MyMotorbikes">
+  
+  <mat-expansion-panel [expanded]="true">
+
     <mat-expansion-panel-header>
-    <mat-panel-title>
-    <h3> {{ movie.title }} </h3>
-    </mat-panel-title>
-    <mat-panel-description>
-    <h3>{{ movie.year }}</h3>
-    </mat-panel-description>
+
+      <mat-panel-title>
+        <h2> {{ motor.model }} </h2>
+      </mat-panel-title>
+
+      <mat-panel-description>
+        <h4>{{ motor.year }}</h4>
+      </mat-panel-description>
+
+      <mat-panel-description>
+          <h4>{{ motor.price }}</h4>
+        </mat-panel-description>
+
+        <mat-panel-description>
+          <h4>{{ motor.description }}</h4>
+        </mat-panel-description>
     </mat-expansion-panel-header>
-    <img src="{{movie.poster}}">
+
+   
+
     <mat-action-row>
-  <button mat-button [routerLink]="['/edit', movie._id]" color="primary">EDIT</button>
-    
-    <button mat-button (click)="onDelete(movie._id)" color="warn">DELETE</button>
+      
+      <button mat-button [routerLink]="['/edit', motor._id]" color="primary">EDIT</button>
+      <button mat-button (click)="onDelete(motor._id)" color="warn">DELETE</button>
+
     </mat-action-row>
-    </mat-expansion-panel>
-    </mat-accordion>
+  
+  </mat-expansion-panel>
+
+</mat-accordion> 

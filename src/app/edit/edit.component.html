@@ -1,37 +1,55 @@
 <mat-card>
-    <form (submit)="onEditMovie(movieForm)" #movieForm="ngForm">
+    <form (submit)="onEditMotorbike(motorbikeForm)" #motorbikeForm="ngForm">
+      
+      
+      <!--This form will allow the user to edit each input, motorbike.model/motorbike.year/motorbike.price
+         all read from stored data. -->
       <mat-form-field>
-          <label> Movie Title</label>
+          <label> Motorbike Model</label>
         <input
           matInput
           type="text"
-          name="title"
-          ngModel={{movie.title}}
+          name="model"
+          ngModel={{motorbike.model}} 
           required
-          #title="ngModel">
+          #model="ngModel">
       </mat-form-field>
       <mat-form-field>
-          <label>Movie Year</label>
+          <label>Motorbike Year</label>
         <textarea
           matInput
           name="year"
-          ngModel={{movie.year}}
+          ngModel={{motorbike.year}}
           required
           #content="ngModel"></textarea>
+          
       </mat-form-field>
       <mat-form-field>
-          <label>Movie Poster</label>
+          <label>Motorbike Price</label>
         <textarea
           matInput
          rows="4"
-          name="poster"
-          ngModel={{movie.poster}}
+          name="price"
+          ngModel={{motorbike.price}}
           required
           #content="ngModel"></textarea>
       </mat-form-field>
+
+      
+      <mat-form-field>
+        <label>Motorbike description</label>
+      <textarea
+        matInput
+       rows="4"
+        name="description"
+        ngModel={{motorbike.description}}
+        required
+        #content="ngModel"></textarea>
+    </mat-form-field>
+
       <button
         mat-raised-button
         color="accent"
-        type="submit">Edit Movie</button>
+        type="submit">Edit Motorbike</button>
     </form>
   </mat-card>

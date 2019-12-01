@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MovieServiceService } from '../Services/movie-service.service';
+import { MotorbikeServiceService } from '../Services/Motorbike-service.service';
 import {Router, ActivatedRoute} from '@angular/router';
 
 @Component({
@@ -8,19 +8,19 @@ import {Router, ActivatedRoute} from '@angular/router';
   styleUrls: ['./read.component.css']
 })
 export class ReadComponent implements OnInit {
-  MyMovies: any = [];
-  constructor(private movieService: MovieServiceService) { }
+  MyMotorbikes: any = [];
+  constructor(private motorbikeService: MotorbikeServiceService) { }
 
   ngOnInit() {
-    this.movieService.GetMovieInformation().subscribe((data) => {
-      this.MyMovies = data.movies;
-      console.log(this.MyMovies);
+    this.motorbikeService.GetMotorbikeInformation().subscribe((data) => {
+      this.MyMotorbikes = data.motorbikes;
+      console.log(data.motorbikes);
     })
   }
 
   onDelete(id:String){
-    console.log("Deleting movie with id: "+id);
-    this.movieService.DeleteMovie(id).subscribe(
+    console.log("Deleting motorbike with id: "+id);
+    this.motorbikeService.DeleteMotorbike(id).subscribe(
       ()=>{
         this.ngOnInit();
       }

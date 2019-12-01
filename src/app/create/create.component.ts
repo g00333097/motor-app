@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from "@angular/forms";
-import { MovieServiceService } from '../Services/movie-service.service';
+import { MotorbikeServiceService } from '../Services/Motorbike-service.service';
 
 
 @Component({
@@ -10,31 +10,30 @@ import { MovieServiceService } from '../Services/movie-service.service';
 })
 export class CreateComponent implements OnInit {
 
-  constructor(private movieService: MovieServiceService) { }
+  constructor(private motorbikeService: MotorbikeServiceService) { }
 
   ngOnInit() {
   }
   myDate : Date;
-  onAddMovie(form: NgForm) {
+  onAddMotorbike(form: NgForm) {
     
     if(!form.valid)
     {
       return;
     }
 
-    console.log(form.value);
-    console.log(form.value.date);
-    this.myDate = new Date(form.value.date);
-    console.log(this.myDate);
+   
 
-    this.movieService.AddMovieInformation(form.value.title,
-      form.value.year, form.value.poster).subscribe(
+    this.motorbikeService.AddMotorbikeInformation(form.value.model,
+      form.value.year, form.value.price, form.value.description, ).subscribe(
         ()=>{
-          //do something after out operation has finished
+          //do something after out operation has finished 
         }
       );
     console.log(form.value);
-    form.resetForm();
+    form.resetForm(); 
+
+    //Store the imput value and reset the fields onclick.
   }
 
 }
